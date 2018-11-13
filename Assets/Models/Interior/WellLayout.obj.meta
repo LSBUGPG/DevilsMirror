@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 25a14cc3041068e41af207ccaf80d3d2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: gate
+    100002: gate1
+    100004: gate2
+    100006: gate3
+    100008: gate4
+    100010: gate5
+    100012: gate6
+    100014: gate7
+    100016: pCube1
+    100018: pCube2
+    100020: pCube3
+    100022: pCube4
+    100024: pCube5
+    100026: pCylinder1
+    100028: pCylinder2
+    100030: pCylinder3
+    100032: well_chessroom:pPlane1
+    100034: well_circleroom1:pDisc1
+    100036: well_circleroom:pDisc1
+    100038: well_corridor_corner:pCylinder1
+    100040: well_corridor_straight:pCylinder1
+    100042: well_gate:gate
+    100044: well_mirrorroom:pPlane1
+    100046: well_pitfallroom:pPlane1
+    100048: well_platformingroom:pCube1
+    100050: well_stairroom:pDisc3
+    100052: //RootNode
+    400000: gate
+    400002: gate1
+    400004: gate2
+    400006: gate3
+    400008: gate4
+    400010: gate5
+    400012: gate6
+    400014: gate7
+    400016: pCube1
+    400018: pCube2
+    400020: pCube3
+    400022: pCube4
+    400024: pCube5
+    400026: pCylinder1
+    400028: pCylinder2
+    400030: pCylinder3
+    400032: well_chessroom:pPlane1
+    400034: well_circleroom1:pDisc1
+    400036: well_circleroom:pDisc1
+    400038: well_corridor_corner:pCylinder1
+    400040: well_corridor_straight:pCylinder1
+    400042: well_gate:gate
+    400044: well_mirrorroom:pPlane1
+    400046: well_pitfallroom:pPlane1
+    400048: well_platformingroom:pCube1
+    400050: well_stairroom:pDisc3
+    400052: //RootNode
+    2100000: initialShadingGroup
+    2300000: gate
+    2300002: gate1
+    2300004: gate2
+    2300006: gate3
+    2300008: gate4
+    2300010: gate5
+    2300012: gate6
+    2300014: gate7
+    2300016: pCube1
+    2300018: pCube2
+    2300020: pCube3
+    2300022: pCube4
+    2300024: pCube5
+    2300026: pCylinder1
+    2300028: pCylinder2
+    2300030: pCylinder3
+    2300032: well_chessroom:pPlane1
+    2300034: well_circleroom1:pDisc1
+    2300036: well_circleroom:pDisc1
+    2300038: well_corridor_corner:pCylinder1
+    2300040: well_corridor_straight:pCylinder1
+    2300042: well_gate:gate
+    2300044: well_mirrorroom:pPlane1
+    2300046: well_pitfallroom:pPlane1
+    2300048: well_platformingroom:pCube1
+    2300050: well_stairroom:pDisc3
+    3300000: gate
+    3300002: gate1
+    3300004: gate2
+    3300006: gate3
+    3300008: gate4
+    3300010: gate5
+    3300012: gate6
+    3300014: gate7
+    3300016: pCube1
+    3300018: pCube2
+    3300020: pCube3
+    3300022: pCube4
+    3300024: pCube5
+    3300026: pCylinder1
+    3300028: pCylinder2
+    3300030: pCylinder3
+    3300032: well_chessroom:pPlane1
+    3300034: well_circleroom1:pDisc1
+    3300036: well_circleroom:pDisc1
+    3300038: well_corridor_corner:pCylinder1
+    3300040: well_corridor_straight:pCylinder1
+    3300042: well_gate:gate
+    3300044: well_mirrorroom:pPlane1
+    3300046: well_pitfallroom:pPlane1
+    3300048: well_platformingroom:pCube1
+    3300050: well_stairroom:pDisc3
+    4300000: gate
+    4300002: gate1
+    4300004: gate2
+    4300006: gate3
+    4300008: gate4
+    4300010: gate5
+    4300012: gate6
+    4300014: gate7
+    4300016: pCube1
+    4300018: pCube2
+    4300020: pCube3
+    4300022: pCube4
+    4300024: pCube5
+    4300026: pCylinder1
+    4300028: pCylinder2
+    4300030: pCylinder3
+    4300032: well_chessroom:pPlane1
+    4300034: well_circleroom1:pDisc1
+    4300036: well_circleroom:pDisc1
+    4300038: well_corridor_corner:pCylinder1
+    4300040: well_corridor_straight:pCylinder1
+    4300042: well_gate:gate
+    4300044: well_mirrorroom:pPlane1
+    4300046: well_pitfallroom:pPlane1
+    4300048: well_platformingroom:pCube1
+    4300050: well_stairroom:pDisc3
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

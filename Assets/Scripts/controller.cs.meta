@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 18045d4688d006e488da5290b05e232a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerstats: {instanceID: 0}
+  - collectlight: {fileID: 8300000, guid: f5eab14544cc0094c8fd1c5d12c24ddf, type: 3}
+  - collectdark: {fileID: 8300000, guid: e582f9a6c61aa5148a66921756e557c7, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
