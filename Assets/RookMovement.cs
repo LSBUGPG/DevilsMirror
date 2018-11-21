@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class RookMovement : MonoBehaviour
 {
@@ -21,7 +22,11 @@ public class RookMovement : MonoBehaviour
 
     int rayCastDistance = 15;
 
-    public bool canMove;
+    bool moving = false;
+	bool blocked = false;
+	bool edge = false;
+	Vector3 lastGoodPosition;
+
 
     // Use this for initialization
     void Start()
@@ -73,18 +78,60 @@ public class RookMovement : MonoBehaviour
         // isMovingToTarget = transform.position != target;
 
         // transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
-        if (canMove)
-        {
-            transform.Translate(Target * moveSpeed * Time.deltaTime);
-        }
+        // if (canMove)
+        // {
+        //     transform.Translate(Target * moveSpeed * Time.deltaTime);
+        // }
     }
+
+	public void MoveOneSquare()
+	{
+		StartCoroutine(MoveTo(transform.position + Target * 2.2f));
+	}
+
+	public void ReturnToLastGoodSquare()
+	{
+		StartCoroutine(MoveTo(lastGoodPosition));
+	}
+
+	IEnumerator MoveTo(Vector3 target)
+	{
+		moving = true;
+		blocked = false;
+		edge = false;
+		float position = 0.0f;
+		Vector3 start = transform.position;
+		lastGoodPosition = chessCommand.GetTilePos(x, y);
+		while (moving && position < 1.0f)
+		{
+			position += moveSpeed * Time.deltaTime;
+			transform.position = Vector3.Lerp(start, target, position);
+			yield return null;
+		}
+
+		moving = false;
+	}
 
     public void Stop()
     {
-        transform.position = chessCommand.GetTilePos(x, y);
-        canMove = false;
-
+        moving = false;
+		blocked = true;
     }
+
+	public bool IsMoving()
+	{
+		return moving;
+	}
+
+	public bool IsBlocked()
+	{
+		return blocked;
+	}
+
+	public bool OnEdge()
+	{
+		return edge;
+	}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -97,28 +144,28 @@ public class RookMovement : MonoBehaviour
             //if entering far right edge for first time
             if (tile.x == chessCommand.boardDimensions - 1 && x != chessCommand.boardDimensions - 1)
             {
-                chessCommand.StopAll();
+                edge = true;
                 Debug.Log("Rook Hit Right Edge");
             }
 
             //if entering far left edge for first time
             if (tile.x == 0 && x != 0)
             {
-                chessCommand.StopAll();
+                edge = true;
                 Debug.Log("Rook Hit Left Edge");
             }
 
             //if entering top edge for first time
             if (tile.y == chessCommand.boardDimensions - 1 && y != chessCommand.boardDimensions - 1)
             {
-                chessCommand.StopAll();
+                edge = true;
                 Debug.Log("Rook Hit Top Edge");
             }
 
             //if entering bottom edge for first time
             if (tile.y == 0 && y != 0)
             {
-                chessCommand.StopAll();
+                edge = true;
                 Debug.Log("Rook Hit Bottom Edge");
             }
         }
@@ -129,7 +176,7 @@ public class RookMovement : MonoBehaviour
             y = other.GetComponent<TileInfo>().y;
         }
 
-        if (other.tag == "TileBroken" || other.GetComponent<TileInfo>().edge)
+        if (other.tag == "TileBroken")
         {
             Debug.Log("Rook caused stop");
             chessCommand.StopAll();

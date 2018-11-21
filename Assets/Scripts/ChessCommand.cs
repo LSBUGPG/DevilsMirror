@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ChessCommand : MonoBehaviour
@@ -61,11 +62,13 @@ public class ChessCommand : MonoBehaviour
 
     public void SetTargets(Vector3 dirToMove)
     {
+		StartCoroutine(MovePieces(dirToMove));
+    }
+
+	IEnumerator MovePieces(Vector3 dirToMove)
+	{
         var rookScript = rook.GetComponent<RookMovement>();
         var bishopScript = bishop.GetComponent<BishopMovement>();
-
-        rookScript.canMove = true;
-        bishopScript.canMove = true;
 
         //Compare the direction passed in (dirToMove) with the pairs we set up in the Start method.
 
@@ -113,7 +116,36 @@ public class ChessCommand : MonoBehaviour
             rookScript.Target = right.RookDirection;
         }
 
-    }
+		while (true)
+		{
+			rookScript.MoveOneSquare();
+			bishopScript.MoveOneSquare();
+
+			bool moving = true;
+			bool blocked = false;
+			bool edge = false;
+			while (moving && !blocked)
+			{
+				moving = rookScript.IsMoving() || bishopScript.IsMoving();
+				blocked = rookScript.IsBlocked() || bishopScript.IsBlocked();
+				edge = rookScript.OnEdge() || bishopScript.OnEdge();
+				yield return null;
+			}
+
+			if (blocked)
+			{
+				rookScript.ReturnToLastGoodSquare();
+				bishopScript.ReturnToLastGoodSquare();
+				break;
+			}
+
+			if (edge)
+			{
+				break;
+			}
+		}
+		yield return new WaitWhile(() => rookScript.IsMoving() || bishopScript.IsMoving());
+	}
 
     public void StopAll()
     {

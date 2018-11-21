@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class BishopMovement : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class BishopMovement : MonoBehaviour
 
     int rayCastDistance = 15;
 
-    public bool canMove;
+    bool moving = false;
+	bool blocked = false;
+	bool edge = false;
+	Vector3 lastGoodPosition;
 
     // Use this for initialization
     void Start()
@@ -83,17 +87,60 @@ public class BishopMovement : MonoBehaviour
 
         // transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
 
-        if (canMove)
-        {
-            transform.Translate(Target * moveSpeed * Time.deltaTime);
-        }
+        // if (canMove)
+        // {
+        //     transform.Translate(Target * moveSpeed * Time.deltaTime);
+        // }
     }
+
+	public void MoveOneSquare()
+	{
+		StartCoroutine(MoveTo(transform.position + Target * 2.2f));
+	}
+
+	public void ReturnToLastGoodSquare()
+	{
+		StartCoroutine(MoveTo(lastGoodPosition));
+	}
+
+	IEnumerator MoveTo(Vector3 target)
+	{
+		lastGoodPosition = chessCommand.GetTilePos(x, y);
+		moving = true;
+		blocked = false;
+		edge = false;
+		float position = 0.0f;
+		Vector3 start = transform.position;
+		while (moving && position < 1.0f)
+		{
+			position += moveSpeed * Time.deltaTime;
+			transform.position = Vector3.Lerp(start, target, position);
+			yield return null;
+		}
+
+		moving = false;
+	}
 
     public void Stop()
     {
-        transform.position = chessCommand.GetTilePos(x, y);
-        canMove = false;
+        moving = false;
+		blocked = true;
     }
+
+	public bool IsMoving()
+	{
+		return moving;
+	}
+
+	public bool IsBlocked()
+	{
+		return blocked;
+	}
+
+	public bool OnEdge()
+	{
+		return edge;
+	}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -104,9 +151,10 @@ public class BishopMovement : MonoBehaviour
         }
 
         TileInfo tileInfo = other.GetComponent<TileInfo>();
-        if (other.tag == "TileBroken" || tileInfo.edge)
+		edge = tileInfo.edge;
+        if (other.tag == "TileBroken")
         {
-            Debug.Log("Bishop caused stop");
+            Debug.LogFormat("Bishop caused stop @ {0}, {1}", tileInfo.x, tileInfo.y);
             chessCommand.StopAll();
         }
     }
